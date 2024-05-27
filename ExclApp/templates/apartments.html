@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartments in Bangalore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0f0f0;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            flex: 1 100%;
+            text-align: center;
+            margin-top: 20px;
+            width: 20%;
+        }
+
+        .submit-btn button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            width: 40%;
+            height: 60px;
+            border-radius: 5px;
+            white-space: pre-wrap; /* Allows the button to display text with line breaks */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #1e1e1e;
+        }
+
+        a {
+            color: #1e90ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Apartments in Bangalore</h1>
+
+    <form action="" method="GET">
+        <h2 style="width: 100%;">Filter Options:</h2>
+    
+        <div class="filter-group">
+            <label for="project_type">Project Type:</label><br>
+            <input type="checkbox" name="project_type" value="Villas"> Villas<br>
+            <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
+            <input type="checkbox" name="project_type" value="Row Houses"> Row Houses<br>
+            <input type="checkbox" name="project_type" value="Plots"> Plots<br><br>
+        </div>
+    
+        <div class="filter-group">
+            <label for="status">Project Status:</label><br>
+            <input type="checkbox" name="status" value="Delivered"> Delivered<br>
+            <input type="checkbox" name="status" value="OnGoing"> OnGoing<br><br>
+        </div>
+    
+        <div class="filter-group">
+            <label for="configuration">Configuration:</label><br>
+            <input type="checkbox" name="configuration" value="1"> 1 BHK<br>
+            <input type="checkbox" name="configuration" value="2"> 2 BHK<br>
+            <input type="checkbox" name="configuration" value="3"> 3 BHK<br>
+            <input type="checkbox" name="configuration" value="4"> 4 BHK<br><br>
+        </div>
+    
+        <div class="filter-group">
+            <label for="geo_imp">Geographical Importance:</label><br>
+            <input type="checkbox" name="geo_imp" value="East"> East<br>
+            <input type="checkbox" name="geo_imp" value="North"> North<br>
+            <input type="checkbox" name="geo_imp" value="West"> West<br>
+            <input type="checkbox" name="geo_imp" value="South"> South<br>
+            <input type="checkbox" name="geo_imp" value="Central"> Central<br><br>
+        </div>
+    
+        <div class="submit-btn">
+            <button type="submit">Press Enter or<br> Click Here to Apply Filters</button>
+        </div>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Builder</th>
+                <th>Project Name</th>
+                <th>Project Type</th>
+                <th>Project Status</th>
+                <th>Configuration</th>
+                <th>Size</th>
+                <th>Geo Imp</th>
+                <th>Theme</th>
+                <th>Web</th>
+                <th>Google Map</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.builder }}</td>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.project_type }}</td>
+                <td>{{ project.project_status }}</td>
+                <td>{{ project.configuration }}</td>
+                <td>{{ project.size }}</td>
+                <td>{{ project.geo_imp }}</td>
+                <td>{{ project.theme }}</td>
+                <td><a href="{{ project.web }}">Link</a></td>
+                <td><a href="{{ project.google_map }}">Link</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
