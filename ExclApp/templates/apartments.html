@@ -1,3 +1,331 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartments in Bangalore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0f0f0;
+        }
+
+        form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    position: relative;
+    width: 23%;
+    margin: 10px 0;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dropbtn {
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #555;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.dropdown-content input {
+    margin: 10px;
+}
+
+.dropdown-content input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.dropdown-content input[type="checkbox"]:hover {
+    background-color: #444;
+}
+
+.submit-btn {
+    flex: 1 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-btn button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 200px;
+    height: 60px;
+    border-radius: 5px;
+    white-space: pre-wrap; /* Allows the button to display text with line breaks */
+}
+
+.submit-btn button:hover {
+    background-color: #555;
+}      
+.property-tile {
+    display: flex;
+    width: 90vw;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+.details-container {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+}
+
+.builder-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.attributes-heading, .attributes-values {
+    display: flex;
+    justify-content: space-between;
+}
+
+.attributes-heading div, .attributes-values div {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+}
+
+.attributes-heading {
+    background-color: #555;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.extra-info {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-row div {
+    padding: 5px;
+    flex: 1;
+    text-align: center;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Apartments in Bangalore</h1>
+  
+    <form action="" method="GET">
+        <div class="filter-group">
+            <label for="project_type">Project Type:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Select Project Type</button>
+                <div id="projectTypeDropdown" class="dropdown-content">
+                    <input type="checkbox" name="project_type" value="Villas"> Villas<br>
+                    <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
+                    <input type="checkbox" name="project_type" value="Row Houses"> Row Houses<br>
+                    <input type="checkbox" name="project_type" value="Plots"> Plots<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label for="status">Project Status:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Select Status</button>
+                <div id="statusDropdown" class="dropdown-content">
+                    <input type="checkbox" name="status" value="Delivered"> Delivered<br>
+                    <input type="checkbox" name="status" value="OnGoing"> OnGoing<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label for="configuration">Configuration:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Select Configuration</button>
+                <div id="configurationDropdown" class="dropdown-content">
+                    <input type="checkbox" name="configuration" value="1"> 1 BHK<br>
+                    <input type="checkbox" name="configuration" value="2"> 2 BHK<br>
+                    <input type="checkbox" name="configuration" value="3"> 3 BHK<br>
+                    <input type="checkbox" name="configuration" value="4"> 4 BHK<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label for="geo_imp">Geographical Importance:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Select Geographical Importance</button>
+                <div id="geoImpDropdown" class="dropdown-content">
+                    <input type="checkbox" name="geo_imp" value="East"> East<br>
+                    <input type="checkbox" name="geo_imp" value="North"> North<br>
+                    <input type="checkbox" name="geo_imp" value="West"> West<br>
+                    <input type="checkbox" name="geo_imp" value="South"> South<br>
+                    <input type="checkbox" name="geo_imp" value="Central"> Central<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="submit-btn">
+            <button type="submit">Press Enter or<br>Click Here to Apply Filters</button>
+        </div>
+    </form>
+
+    {% for project in projects %}
+
+    <div class="property-tile">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="details-container">
+            <div class="builder-name">{{project.builder}}</div>
+            <div class="attributes-heading">
+                <div>Type</div>
+                <div>Config</div>
+                <div>Size</div>
+                <div>Project Size</div>
+                <div>Total Units</div>
+                <div>Geo Imp</div>
+            </div>
+            <div class="attributes-values">
+                <div>{{project.project_type}}</div>
+                <div>{{project.configuration}}</div>
+                <div>{{project.size}}</div>
+                <div>{{project.size}}</div>
+                <div>200 unit</div>
+                <div>{{project.geo_imp}}</div>
+            </div>
+        </div>
+        <div class="extra-info">
+            <div class="info-row">
+                <div>HSR Layout</div>
+                <div><a href="https://example.com">Website</a></div>
+            </div>
+            <div class="info-row">
+                <div>Possession Date</div>
+                <div>Status</div>
+            </div>
+            <div class="info-row">
+                <div>Date</div>
+                <div>Ongoing</div>
+            </div>
+        </div>
+    </div>
+
+            {% endfor %}
+
+</body>
+</html>
+
+
+<script>
+    function toggleDropdown(event, dropdownId) {
+    event.stopPropagation();
+    const dropdown = document.getElementById(dropdownId);
+    const isOpen = dropdown.style.display === 'block';
+    closeAllDropdowns();
+    if (!isOpen) {
+        dropdown.style.display = 'block';
+    }
+}
+
+function closeAllDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown-content');
+    dropdowns.forEach(dropdown => {
+        dropdown.style.display = 'none';
+    });
+}
+
+document.addEventListener('click', (event) => {
+    const isClickInside = event.target.closest('.dropdown-content') || event.target.closest('.dropbtn');
+    if (!isClickInside) {
+        closeAllDropdowns();
+    }
+});
+
+</script> -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,20 +354,67 @@
         }
 
         .filter-group {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
+            position: relative;
+            width: 23%;
+            margin: 10px 0;
         }
 
         label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .dropbtn {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #555;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            max-height: 150px;
+            overflow-y: auto;
+            margin-top: 5px;
+        }
+
+        .dropdown-content input {
+            margin: 10px;
+        }
+
+        .dropdown-content input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .dropdown-content input[type="checkbox"]:hover {
+            background-color: #444;
         }
 
         .submit-btn {
             flex: 1 100%;
             text-align: center;
             margin-top: 20px;
-            width: 20%;
         }
 
         .submit-btn button {
@@ -49,114 +424,226 @@
             padding: 10px 20px;
             cursor: pointer;
             font-size: 20px;
-            width: 40%;
+            width: 200px;
             height: 60px;
             border-radius: 5px;
             white-space: pre-wrap; /* Allows the button to display text with line breaks */
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .submit-btn button:hover {
+            background-color: #555;
+        }      
+        .property-tile {
+            display: flex;
+            width: 90vw;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
         }
 
-        th, td {
-            padding: 10px;
-            border: 1px solid #444;
-            text-align: left;
+        .logo-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 20px;
         }
 
-        th {
-            background-color: #333;
+        .logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
         }
 
-        tr:nth-child(even) {
-            background-color: #2a2a2a;
+        .details-container {
+            flex: 8;
+            display: flex;
+            flex-direction: column;
         }
 
-        tr:nth-child(odd) {
-            background-color: #1e1e1e;
+        .builder-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .attributes-heading, .attributes-values {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .attributes-heading div, .attributes-values div {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .attributes-heading {
+            background-color: #555;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        .extra-info {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-row div {
+            padding: 5px;
+            flex: 1;
+            text-align: center;
         }
 
         a {
             color: #1e90ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <h1>Apartments in Bangalore</h1>
-
+  
     <form action="" method="GET">
-        <h2 style="width: 100%;">Filter Options:</h2>
-    
         <div class="filter-group">
-            <label for="project_type">Project Type:</label><br>
-            <input type="checkbox" name="project_type" value="Villas"> Villas<br>
-            <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
-            <input type="checkbox" name="project_type" value="Row Houses"> Row Houses<br>
-            <input type="checkbox" name="project_type" value="Plots"> Plots<br><br>
+            <input type="text" name="search" placeholder="Search by builder or project name" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #444;">
         </div>
-    
+        
         <div class="filter-group">
-            <label for="status">Project Status:</label><br>
-            <input type="checkbox" name="status" value="Delivered"> Delivered<br>
-            <input type="checkbox" name="status" value="OnGoing"> OnGoing<br><br>
+            <label for="project_type">Project Type:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Select Project Type</button>
+                <div id="projectTypeDropdown" class="dropdown-content">
+                    <input type="checkbox" name="project_type" value="Villas"> Villas<br>
+                    <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
+                    <input type="checkbox" name="project_type" value="Row Houses"> Row Houses<br>
+                    <input type="checkbox" name="project_type" value="Plots"> Plots<br>
+                </div>
+            </div>
         </div>
-    
+
         <div class="filter-group">
-            <label for="configuration">Configuration:</label><br>
-            <input type="checkbox" name="configuration" value="1"> 1 BHK<br>
-            <input type="checkbox" name="configuration" value="2"> 2 BHK<br>
-            <input type="checkbox" name="configuration" value="3"> 3 BHK<br>
-            <input type="checkbox" name="configuration" value="4"> 4 BHK<br><br>
+            <label for="status">Project Status:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Select Status</button>
+                <div id="statusDropdown" class="dropdown-content">
+                    <input type="checkbox" name="status" value="Delivered"> Delivered<br>
+                    <input type="checkbox" name="status" value="OnGoing"> OnGoing<br>
+                </div>
+            </div>
         </div>
-    
+
         <div class="filter-group">
-            <label for="geo_imp">Geographical Importance:</label><br>
-            <input type="checkbox" name="geo_imp" value="East"> East<br>
-            <input type="checkbox" name="geo_imp" value="North"> North<br>
-            <input type="checkbox" name="geo_imp" value="West"> West<br>
-            <input type="checkbox" name="geo_imp" value="South"> South<br>
-            <input type="checkbox" name="geo_imp" value="Central"> Central<br><br>
+            <label for="configuration">Configuration:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Select Configuration</button>
+                <div id="configurationDropdown" class="dropdown-content">
+                    <input type="checkbox" name="configuration" value="1"> 1 BHK<br>
+                    <input type="checkbox" name="configuration" value="2"> 2 BHK<br>
+                    <input type="checkbox" name="configuration" value="3"> 3 BHK<br>
+                    <input type="checkbox" name="configuration" value="4"> 4 BHK<br>
+                </div>
+            </div>
         </div>
-    
+
+        <div class="filter-group">
+            <label for="geo_imp">Geographical Importance:</label>
+            <div class="dropdown">
+                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Select Geographical Importance</button>
+                <div id="geoImpDropdown" class="dropdown-content">
+                    <input type="checkbox" name="geo_imp" value="East"> East<br>
+                    <input type="checkbox" name="geo_imp" value="North"> North<br>
+                    <input type="checkbox" name="geo_imp" value="West"> West<br>
+                    <input type="checkbox" name="geo_imp" value="South"> South<br>
+                    <input type="checkbox" name="geo_imp" value="Central"> Central<br>
+                </div>
+            </div>
+        </div>
+
         <div class="submit-btn">
-            <button type="submit">Press Enter or<br> Click Here to Apply Filters</button>
+            <button type="submit">Press Enter or<br>Click Here to Apply Filters</button>
         </div>
     </form>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>Builder</th>
-                <th>Project Name</th>
-                <th>Project Type</th>
-                <th>Project Status</th>
-                <th>Configuration</th>
-                <th>Size</th>
-                <th>Geo Imp</th>
-                <th>Theme</th>
-                <th>Web</th>
-                <th>Google Map</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for project in projects %}
-            <tr>
-                <td>{{ project.builder }}</td>
-                <td>{{ project.project_name }}</td>
-                <td>{{ project.project_type }}</td>
-                <td>{{ project.project_status }}</td>
-                <td>{{ project.configuration }}</td>
-                <td>{{ project.size }}</td>
-                <td>{{ project.geo_imp }}</td>
-                <td>{{ project.theme }}</td>
-                <td><a href="{{ project.web }}">Link</a></td>
-                <td><a href="{{ project.google_map }}">Link</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    {% for project in projects %}
+    <div class="property-tile">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="details-container">
+            <div class="builder-name">{{project.builder}}</div>
+            <div class="attributes-heading">
+                <div>Type</div>
+                <div>Config</div>
+                <div>Size</div>
+                <div>Project Size</div>
+                <div>Total Units</div>
+                <div>Geo Imp</div>
+            </div>
+            <div class="attributes-values">
+                <div>{{project.project_type}}</div>
+                <div>{{project.configuration}}</div>
+                <div>{{project.size}}</div>
+                <div>{{project.size}}</div>
+                <div>200 unit</div>
+                <div>{{project.geo_imp}}</div>
+            </div>
+        </div>
+        <div class="extra-info">
+            <div class="info-row">
+                <div>HSR Layout</div>
+                <div><a href="https://example.com">Website</a></div>
+            </div>
+            <div class="info-row">
+                <div>Possession Date</div>
+                <div>Status</div>
+            </div>
+            <div class="info-row">
+                <div>Date</div>
+                <div>Ongoing</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </body>
 </html>
+
+<script>
+    function toggleDropdown(event, dropdownId) {
+        event.stopPropagation();
+        const dropdown = document.getElementById(dropdownId);
+        const isOpen = dropdown.style.display === 'block';
+        closeAllDropdowns();
+        if (!isOpen) {
+            dropdown.style.display = 'block';
+        }
+    }
+
+    function closeAllDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+        });
+    }
+
+    document.addEventListener('click', (event) => {
+        const isClickInside = event.target.closest('.dropdown-content') || event.target.closest('.dropbtn');
+        if (!isClickInside) {
+            closeAllDropdowns();
+        }
+    });
+</script>

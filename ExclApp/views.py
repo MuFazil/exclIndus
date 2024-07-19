@@ -11,6 +11,11 @@ def apartments_view(request):
         # Initialize an empty Q object to build the query
         query = Q()
 
+        search_query = request.GET.get('search')
+        if search_query:
+            query &= Q(builder__icontains=search_query) | Q(project_name__icontains=search_query)
+
+
         # Check if project type filters are applied
         selected_project_types = request.GET.getlist('project_type')
         if selected_project_types:
