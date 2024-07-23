@@ -95,7 +95,7 @@ a:hover {
 }
 
 .filter-result {
-    width: 45vw; /* Set width to 40vw */
+    width: 40vw; /* Set width to 40vw */
     display: flex;
     align-content: baseline;
     align-items: baseline;
@@ -104,7 +104,7 @@ a:hover {
 }
 
 .filters-container {
-    width: 25vw; /* Set width to 30vw */
+    width: 30vw; /* Set width to 30vw */
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -135,7 +135,20 @@ a:hover {
     cursor: pointer;
     border-radius: 5px;
     text-align: left; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
 }
+
+.dropdown-arrow {
+    margin-left: 10px; /* Space between text and arrow */
+    fill: currentColor; /* Arrow color inherits from text color */
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #333;
+}
+
 
 .dropbtn:hover, .dropbtn:focus {
     background-color: #333;
@@ -152,6 +165,7 @@ a:hover {
     background-color: #000;
     min-width: 100%; /* Ensure it starts at least as wide as the dropdown button */
     max-width: 300px; /* Set a maximum width for larger screens */
+    padding-right: 10px;
     width: auto; /* Let it expand based on content */
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -321,7 +335,7 @@ a:hover {
     </style>
 </head>
 <body>
-    <h1>Apartments in Bangalore</h1>
+    <h1>Properties in Bangalore</h1>
   
 <form action="" method="GET">
     <div class="search-container">
@@ -338,7 +352,11 @@ a:hover {
         <div class="filters-container">
             <div class="filter-group">
                 <div class="dropdown">
-                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Property Type</button>
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Property Type
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4L6 7L9 4H3Z" fill="currentColor"/>
+                        </svg>
+                    </button>
                     <div id="projectTypeDropdown" class="dropdown-content">
                         <input type="checkbox" name="project_type" value="Villa"> Villas<br>
                         <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
@@ -349,7 +367,11 @@ a:hover {
     
             <div class="filter-group">
                 <div class="dropdown">
-                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Builder</button>
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Builder
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4L6 7L9 4H3Z" fill="currentColor"/>
+                        </svg>
+                    </button>
                     <div id="statusDropdown" class="dropdown-content">
                         <input type="checkbox" name="builder" value="Godrej"> Godrej<br>
                         <input type="checkbox" name="builder" value="Prestige "> Prestige<br>
@@ -373,7 +395,11 @@ a:hover {
     
             <div class="filter-group">
                 <div class="dropdown">
-                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Configuration</button>
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Configuration
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4L6 7L9 4H3Z" fill="currentColor"/>
+                        </svg>
+                    </button>
                     <div id="configurationDropdown" class="dropdown-content">
                         <input type="checkbox" name="unit_configuration_bhk" value="1"> 1 BHK<br>
                         <input type="checkbox" name="unit_configuration_bhk" value="2"> 2 BHK<br>
@@ -387,7 +413,11 @@ a:hover {
     
             <div class="filter-group">
                 <div class="dropdown">
-                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Geography</button>
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Geography
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4L6 7L9 4H3Z" fill="currentColor"/>
+                        </svg>
+                    </button>
                     <div id="geoImpDropdown" class="dropdown-content">
                         <input type="checkbox" name="geo_imp" value="East"> East<br>
                         <input type="checkbox" name="geo_imp" value="North"> North<br>
