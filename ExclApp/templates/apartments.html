@@ -5,10 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap">
+
     <title>Apartments in Bangalore</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Outfit', sans-serif;
             background-color: #000000;
             color: #d4d4d4;
             margin: 0;
@@ -31,7 +34,11 @@ a:hover {
     color: #1e90ff; /* Optional: Change color on hover if desired */
 }
 
-
+.hidden {
+            visibility: hidden;
+            color: transparent;
+            background-color: transparent;
+        }
 
         form {
     display: flex;
@@ -88,7 +95,7 @@ a:hover {
 }
 
 .filter-result {
-    width: 40vw; /* Set width to 40vw */
+    width: 45vw; /* Set width to 40vw */
     display: flex;
     align-content: baseline;
     align-items: baseline;
@@ -97,7 +104,7 @@ a:hover {
 }
 
 .filters-container {
-    width: 30vw; /* Set width to 30vw */
+    width: 25vw; /* Set width to 30vw */
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -437,17 +444,26 @@ a:hover {
                 <div>PROJECT SIZE</div>
                 <div>TOTAL UNITS</div>
                 <div>GEO IMP</div>
+                {% if project.possession_date %}
                 <div>POSSESSION DATE</div>
-                <div>STATUS</div>
-            </div>
-            <div class="attributes-values">
-                <div>{{project.project_type}}</div>
-                <div>{{project.unit_configuration_bhk}} BHK</div>
-                <div>{{project.unit_size}} sq.ft</div>
-                <div>{{project.project_size_acre}} acres</div>
-                <div>{{project.total_inventory}}</div>
-                <div>{{project.geo_imp}}</div>
-                <div>{{project.possession_date}}</div>
+            {% else %}
+                <div class="hidden">POSSESSION DATE</div>
+            {% endif %}
+            <div>STATUS</div>
+        </div>
+
+        <div class="attributes-values">
+            <div>{{ project.project_type }}</div>
+            <div>{{ project.unit_configuration_bhk }} BHK</div>
+            <div>{{ project.unit_size }} sq.ft</div>
+            <div>{{ project.project_size_acre }} acres</div>
+            <div>{{ project.total_inventory }}</div>
+            <div>{{ project.geo_imp }}</div>
+            {% if project.possession_date %}
+                <div>{{ project.possession_date|slice:":10" }}</div>
+            {% else %}
+                <div class="hidden">{{ project.possession_date|slice:":10" }}</div>
+            {% endif %}
                 <div>{{project.project_status}}</div>
             </div>
         </div>

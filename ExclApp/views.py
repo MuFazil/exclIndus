@@ -42,9 +42,11 @@ def apartments_view(request):
 
         # Apply the combined query to filter projects
         projects = projects.filter(query).distinct()
+        
 
     # Count the number of filtered projects
     project_count = projects.count()
-
+    
+    
     # Render the template with the filtered projects and project count
     return render(request, 'apartments.html', {'projects': projects, 'project_count': project_count})
