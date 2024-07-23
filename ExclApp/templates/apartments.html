@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +19,20 @@
             text-align: center;
             color: #f0f0f0;
         }
+
+
+        a {
+    color: #d4d4d4; /* Set the color to match your design */
+    text-decoration: underline; /* Ensure text is underlined */
+}
+
+a:hover {
+    text-decoration: underline; /* Keep the underline on hover as well */
+    color: #1e90ff; /* Optional: Change color on hover if desired */
+}
+
+
+
         form {
     display: flex;
     flex-direction: column;
@@ -24,7 +40,6 @@
     margin-bottom: 20px;
     width: 100%;
 }
-
 .search-container {
     display: flex;
     align-items: center;
@@ -35,56 +50,84 @@
 
 .search-input {
     width: 60vw;
-    padding: 10px;
+    padding: 10px 20px 10px 10px; /* Extra padding to the right for the icon */
     font-size: 16px;
-    border: 1px solid #444;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
     border-radius: 25px;
     box-sizing: border-box;
-    margin-right: -30px; /* Adjust this value if necessary to align the icon */
+}
+
+.search-icon-container {
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: 40px; /* Adjust this value to place it at the end of the input */
 }
 
 .search-icon {
-    position: relative;
-    right: 35px; /* Adjust this value if necessary to align the icon */
     height: 20px;
     width: 20px;
+    color: black;
 }
 
  
 
-
-.results-and-filter
-{
+.results-and-filter {
     display: flex;
-    justify-content: space-between;
-    width :80vw;
-    align-items: center;
+    width: 80vw;
+    align-items: baseline;
+    align-content: baseline;
+    /* gap: 10vw; Add a gap of 10vw between elements */
+}
+
+.filter-result {
+    width: 40vw; /* Set width to 40vw */
+    display: flex;
+    align-content: baseline;
+    align-items: baseline;
+    align-self: last baseline; 
 
 }
 
-.filter-result{
-
-width : 30vw;
-}
-
-.filters-container{
-
-    width : 30vw;
+.filters-container {
+    width: 30vw; /* Set width to 30vw */
     display: flex;
     justify-content: space-between;
+    position: relative;
+    /* font-size: 8px; */
 
+}
+
+.filter-group {
+    width: auto;
+    font-size: 12px;
+
+
+}
+
+.submit-btn {
+    width: 8vw; /* Set width to 10vw */
+    margin-left: 2vw;
+    text-align: center;
 }
 
 .dropbtn {
     background-color: #000;
     color: white;
     padding: 10px;
-    font-size: 16px;
+    font-size: 12px;
     border: 1px solid white;
     width: 100%;
     cursor: pointer;
     border-radius: 5px;
-    text-align: left; /* Align text to the left for a flat appearance */
+    text-align: left; 
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -96,19 +139,24 @@ width : 30vw;
     display: inline-block;
     width: 100%;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #000;
-    min-width: 100%;
+    min-width: 100%; /* Ensure it starts at least as wide as the dropdown button */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    width: auto; /* Let it expand based on content */
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    max-height: 150px;
+    max-height: 750px;
     overflow-y: auto;
     margin-top: 5px;
-    border: 1px solid white; /* White border for dropdown */
+    border: 1px solid white;
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    overflow: hidden; /* Hide the scrollbar */
+
+
 }
 
 .dropdown-content input {
@@ -122,49 +170,18 @@ width : 30vw;
 
 .dropdown-content input[type="checkbox"]:hover {
     background-color: #333;
-    color: white; /* Ensure checkbox text remains white on hover */
-}
-
-.submit-btn {
-    flex: 1 100%;
-    text-align: center;
-    margin-top: 20px;
+    color: white; 
 }
 
 .submit-btn button {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid white;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 20px;
-    width: 200px;
-    height: 60px;
-    border-radius: 5px;
-    white-space: pre-wrap; /* Allows the button to display text with line breaks */
-}
-
-.submit-btn button:hover {
-    background-color: #333;
-}
-
-
-.submit-btn {
-    flex: 1 100%;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.submit-btn button {
-    background-color: #444;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     cursor: pointer;
-    font-size: 20px;
-    width: 200px;
-    height: 60px;
+    font-size: 10px;
+    width: 100%; /* Ensure the button fills the parent container */
+    height: 35px;
     border-radius: 5px;
     white-space: pre-wrap; /* Allows the button to display text with line breaks */
 }
@@ -175,22 +192,19 @@ width : 30vw;
 
 
 
-
-
-
-
-        .property-tile {
-            display: flex;
-            width: 80vw;
-    border: 1px solid white;
-
-            background-color: #000000;
-            margin-left: 7.8vw;
-            padding-left: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
-        }
+.property-tile {
+    display: flex;
+    width: 80vw;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-left: 7.8vw;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
 
         .logo-container {
             flex: 1;
@@ -201,8 +215,8 @@ width : 30vw;
         }
 
         .logo-container img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 5px;
         }
 
@@ -212,13 +226,11 @@ width : 30vw;
             flex-direction: column;
         }
 
-        .builder-name-cont {
-            /* padding-top: 15px;
-            padding-bottom: 15px; */
-margin-bottom: 8px;
+.builder-name-cont {
+  
+    margin-bottom: 8px;
     display: flex;
     align-items: center; /* Vertically centers the content */
-    /* justify-content: center; Horizontally centers the content */
     height: 50%;
     text-align: center;
     justify-content: space-between;
@@ -238,13 +250,31 @@ margin-bottom: 8px;
 
     display: flex;
     justify-content: space-around;
+    margin-right: 5px;
 
 }
 
 .info-row-map div{
     padding-left: 15px;
+    margin-right: 5px;
 
 }
+
+.project-link {
+    display: flex;
+    align-items: center;
+}
+
+.project-image {
+    max-width: 20px; /* Set the maximum width as needed */
+    max-height: 20px; /* Set the maximum height as needed */
+    width: auto;
+    height: auto;
+    margin-right: 5px; /* Space between image and link */
+    display: block;
+}
+
+
         .attributes-heading, .attributes-values {
             display: flex;
             justify-content: space-between;
@@ -256,6 +286,7 @@ margin-bottom: 8px;
             flex: 1;
             text-align: left;
             padding: 5px;
+            margin-bottom: 5px;
         }
 
         .attributes-heading {
@@ -272,13 +303,14 @@ margin-bottom: 8px;
 
     
         a {
-            color: #1e90ff;
-            text-decoration: none;
-        }
+    color: #d4d4d4; /* Set the color to match your design */
+    text-decoration: underline; /* Ensure text is underlined */
+}
 
-        a:hover {
-            text-decoration: underline;
-        }
+a:hover {
+    text-decoration: underline; /* Keep the underline on hover as well */
+    color: #1e90ff; /* Optional: Change color on hover if desired */
+}
     </style>
 </head>
 <body>
@@ -287,78 +319,96 @@ margin-bottom: 8px;
 <form action="" method="GET">
     <div class="search-container">
         <input type="text" name="search" placeholder="Search here" class="search-input">
-        <img src="search.svg" alt="Search" class="search-icon">
-    </div>
-
- <div class="results-and-filter">
-    <div class="filter-result">
-Bangalore    </div>
-
-    <div class="filters-container">
-        <div class="filter-group">
-            <!-- <label for="project_type">Project Type:</label> -->
-            <div class="dropdown">
-                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Project Type</button>
-                <div id="projectTypeDropdown" class="dropdown-content">
-                    <input type="checkbox" name="project_type" value="Villas"> Villas<br>
-                    <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
-                    <input type="checkbox" name="project_type" value="Row Houses"> Row Houses<br>
-                    <input type="checkbox" name="project_type" value="Plots"> Plots<br>
-                </div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <!-- <label for="status">Project Status:</label> -->
-            <div class="dropdown">
-                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Status</button>
-                <div id="statusDropdown" class="dropdown-content">
-                    <input type="checkbox" name="status" value="Delivered"> Delivered<br>
-                    <input type="checkbox" name="status" value="OnGoing"> OnGoing<br>
-                </div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <!-- <label for="configuration">Configuration:</label> -->
-            <div class="dropdown">
-                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Configuration</button>
-                <div id="configurationDropdown" class="dropdown-content">
-                    <input type="checkbox" name="configuration" value="1"> 1 BHK<br>
-                    <input type="checkbox" name="configuration" value="2"> 2 BHK<br>
-                    <input type="checkbox" name="configuration" value="3"> 3 BHK<br>
-                    <input type="checkbox" name="configuration" value="4"> 4 BHK<br>
-                </div>
-            </div>
-        </div>
-
-        <div class="filter-group">
-            <!-- <label for="geo_imp">Geographical Importance:</label> -->
-            <div class="dropdown">
-                <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Geography</button>
-                <div id="geoImpDropdown" class="dropdown-content">
-                    <input type="checkbox" name="geo_imp" value="East"> East<br>
-                    <input type="checkbox" name="geo_imp" value="North"> North<br>
-                    <input type="checkbox" name="geo_imp" value="West"> West<br>
-                    <input type="checkbox" name="geo_imp" value="South"> South<br>
-                    <input type="checkbox" name="geo_imp" value="Central"> Central<br>
-                </div>
-            </div>
+        <div class="search-icon-container">
+            <img src="{% static 'images/octicon_search-16.svg' %}" alt="Search" class="search-icon">
         </div>
     </div>
-</div>
+    
+
+    <div class="results-and-filter">
+        <div class="filter-result">Bangalore : {{project_count}} Properties found</div>
+    
+        <div class="filters-container">
+            <div class="filter-group">
+                <div class="dropdown">
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'projectTypeDropdown')">Property Type</button>
+                    <div id="projectTypeDropdown" class="dropdown-content">
+                        <input type="checkbox" name="project_type" value="Villa"> Villas<br>
+                        <input type="checkbox" name="project_type" value="Apartment"> Apartment<br>
+                        <input type="checkbox" name="project_type" value="Plot"> Plots<br>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="filter-group">
+                <div class="dropdown">
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'statusDropdown')">Builder</button>
+                    <div id="statusDropdown" class="dropdown-content">
+                        <input type="checkbox" name="builder" value="Godrej"> Godrej<br>
+                        <input type="checkbox" name="builder" value="Prestige "> Prestige<br>
+                        <input type="checkbox" name="builder" value="Embassy"> Embassy<br>
+                        <input type="checkbox" name="builder" value="Sattva"> Sattva<br>
+                        <input type="checkbox" name="builder" value="Assetz"> Assetz<br>
+                        <input type="checkbox" name="builder" value="Lodha"> Lodha<br>
+                        <input type="checkbox" name="builder" value="Mahindra"> Mahindra<br>
+                        <input type="checkbox" name="builder" value="Birla Estates"> Birla Estates<br>
+                        <input type="checkbox" name="builder" value="Casagrand"> Casagrand<br>
+                        <input type="checkbox" name="builder" value="L & T "> L & T<br>
+                        <input type="checkbox" name="builder" value="Total Environment"> Total Environment<br>
+                        <input type="checkbox" name="builder" value="Bharatiya"> Bharatiya<br>
+                        <input type="checkbox" name="builder" value="Shobha"> Shobha<br>
+                        <input type="checkbox" name="builder" value="Brigade"> Brigade<br>
+                        <input type="checkbox" name="builder" value="Sumadhura"> Sumadhura<br>
+                        <input type="checkbox" name="builder" value="Puravankara"> Puravankara<br>                    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="filter-group">
+                <div class="dropdown">
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'configurationDropdown')">Configuration</button>
+                    <div id="configurationDropdown" class="dropdown-content">
+                        <input type="checkbox" name="unit_configuration_bhk" value="1"> 1 BHK<br>
+                        <input type="checkbox" name="unit_configuration_bhk" value="2"> 2 BHK<br>
+                        <input type="checkbox" name="unit_configuration_bhk" value="2.5"> 2.5 BHK<br>
+                        <input type="checkbox" name="unit_configuration_bhk" value="3"> 3 BHK<br>
+                        <input type="checkbox" name="unit_configuration_bhk" value="3.5"> 3.5 BHK<br>
+                        <input type="checkbox" name="unit_configuration_bhk" value="4"> 4 BHK<br>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="filter-group">
+                <div class="dropdown">
+                    <button type="button" class="dropbtn" onclick="toggleDropdown(event, 'geoImpDropdown')">Geography</button>
+                    <div id="geoImpDropdown" class="dropdown-content">
+                        <input type="checkbox" name="geo_imp" value="East"> East<br>
+                        <input type="checkbox" name="geo_imp" value="North"> North<br>
+                        <input type="checkbox" name="geo_imp" value="West"> West<br>
+                        <input type="checkbox" name="geo_imp" value="South"> South<br>
+                        <input type="checkbox" name="geo_imp" value="Central"> Central<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="submit-btn">
+            <button type="submit">Apply Filters</button>
+        </div>
+    </div>
+    
+
+
     </form>
 
-    <div class="submit-btn">
-        <button type="submit">Press </button>
-    </div>
+   
 </form>
 
 
     {% for project in projects %}
     <div class="property-tile">
         <div class="logo-container">
-            <img src="logo.png" alt="Logo">
+            <img src="{% static 'images/' %}{{ project.builder}}.png" alt="Logo" class="logo-image">
         </div>
 
         <div class="details-container">
@@ -367,31 +417,38 @@ Bangalore    </div>
                 <div class= "builder-name">{{project.builder}}</div.builder-name></div>
 
                 <div class="info-row-map">
-                    <div>HSR Layout</div>
-                    <div><a href="https://example.com">Website</a></div>
+                    <div class="project-link">
+                       
+                        <img src="{% static 'images/bx_map.svg' %}" alt="map" class="project-image">
+                        <a href={{project.google_map}}>{{project.project_name}}</a></div>
+
+                    <div class="project-link">
+                        <img src="{% static 'images/ph_globe.svg' %}" alt="Search" class="project-image">
+                        <a href={{project.web}}>Website</a></div>
+
                 </div>
             </div>
 
             
             <div class="attributes-heading">
-                <div>Type</div>
-                <div>Config</div>
-                <div>Size</div>
-                <div>Project Size</div>
-                <div>Total Units</div>
-                <div>Geo Imp</div>
-                <div>Possession Date</div>
-                <div>Status</div>
+                <div>TYPE</div>
+                <div>CONFIG</div>
+                <div>SIZE</div>
+                <div>PROJECT SIZE</div>
+                <div>TOTAL UNITS</div>
+                <div>GEO IMP</div>
+                <div>POSSESSION DATE</div>
+                <div>STATUS</div>
             </div>
             <div class="attributes-values">
                 <div>{{project.project_type}}</div>
-                <div>{{project.configuration}}</div>
-                <div>{{project.size}}</div>
-                <div>{{project.size}}</div>
-                <div>200 unit</div>
+                <div>{{project.unit_configuration_bhk}} BHK</div>
+                <div>{{project.unit_size}} sq.ft</div>
+                <div>{{project.project_size_acre}} acres</div>
+                <div>{{project.total_inventory}}</div>
                 <div>{{project.geo_imp}}</div>
-                <div>Date</div>
-                <div>Ongoing</div>
+                <div>{{project.possession_date}}</div>
+                <div>{{project.project_status}}</div>
             </div>
         </div>
     </div>
