@@ -50,7 +50,7 @@ class project(models.Model):
     total_inventory = models.CharField( max_length=100, default=00)
     web = models.URLField(max_length=200,  default=00)
     address = models.CharField(max_length=255,  default=00)
-    pin = models.CharField(max_length=6, default=00)
+    pin = models.CharField(max_length=60, default=00)
     google_map = models.CharField(max_length=255,  default=00)
     geo_imp = models.CharField(max_length=100,  default=00)
 

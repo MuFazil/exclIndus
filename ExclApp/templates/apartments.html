@@ -23,13 +23,16 @@
             color: #f0f0f0;
         }
 
-
         a {
+            text-decoration: none;
+        }
+
+        .under-links {
     color: #d4d4d4; /* Set the color to match your design */
     text-decoration: underline; /* Ensure text is underlined */
 }
 
-a:hover {
+.under-links:hover {
     text-decoration: underline; /* Keep the underline on hover as well */
     color: #1e90ff; /* Optional: Change color on hover if desired */
 }
@@ -39,6 +42,56 @@ a:hover {
             color: transparent;
             background-color: transparent;
         }
+
+
+        .header {
+            position: fixed;
+            z-index: 2;
+            background: #000;
+            /* padding-left: 9vw; */
+            margin-top: -20px;
+            padding-right: 10px;
+            width: 100%;
+
+        }
+
+        .content {
+            margin-top: 23vh;
+        }
+
+
+        .name-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.company-logo {
+    flex-shrink: 0; /* Prevents the logo from shrinking */
+}
+
+
+.feedback-button {
+    position: absolute;
+    margin-left: 30vw;
+    background-color: #000; /* Adjust as necessary */
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid white; /* Adjust border as needed */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.feedback-button:hover {
+    background-color: #333; /* Adjust hover color as necessary */
+}
+
 
         form {
     display: flex;
@@ -335,7 +388,18 @@ a:hover {
     </style>
 </head>
 <body>
-    <h1>Properties in Bangalore</h1>
+
+    <div class="header">
+        <div class="name-logo-container">
+            <img src="{% static 'images/dm8-logo.svg' %}" alt="LOGO" class="company-logo">
+            
+            <div class="feedback-button-container">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCSiNz4122oucZ2HHjiW87B372k1ayjtjxuZaEpI1H426QEQ/viewform?usp=pp_url&entry.519459804=Option+1" target="_blank" class="feedback-button">Feedback</a>
+
+            </div>
+       
+     </div>
+        
   
 <form action="" method="GET">
     <div class="search-container">
@@ -440,8 +504,9 @@ a:hover {
 
    
 </form>
+</div>
 
-
+<div class="content">
     {% for project in projects %}
     <div class="property-tile">
         <div class="logo-container">
@@ -451,17 +516,18 @@ a:hover {
         <div class="details-container">
             
             <div class="builder-name-cont">
-                <div class= "builder-name">{{project.builder}}</div.builder-name></div>
+                <a href={{project.web}} target="_blank" class= "builder-name" style="text-decoration: none;">{{project.builder}} {{project.project_name}}</div.builder-name>
+                </a>
 
                 <div class="info-row-map">
                     <div class="project-link">
                        
                         <img src="{% static 'images/bx_map.svg' %}" alt="map" class="project-image">
-                        <a href={{project.google_map}}>{{project.project_name}}</a></div>
+                        <a class="under-links" target="_blank" href={{project.google_map}}>{{project.project_name}}</a></div>
 
                     <div class="project-link">
                         <img src="{% static 'images/ph_globe.svg' %}" alt="Search" class="project-image">
-                        <a href={{project.web}}>Website</a></div>
+                        <a class="under-links" target="_blank" href={{project.web}}>Website</a></div>
 
                 </div>
             </div>
@@ -499,6 +565,9 @@ a:hover {
         </div>
     </div>
     {% endfor %}
+
+
+</div>
 </body>
 </html>
 
